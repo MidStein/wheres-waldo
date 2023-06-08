@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import inTown from '../images/puzzles/in-town.jpg';
 import waldo from '../images/characters/waldo.png';
 import wizard from '../images/characters/wizard.png';
@@ -5,12 +6,25 @@ import wilma from '../images/characters/wilma.png';
 import odlaw from '../images/characters/odlaw.png';
 const ContinueGame = ({ illustrationPlaying }) => {
 
+  const [currentlyTargeted, setCurrentlyTargeted] = useState('');
+
   const boxPopUp = (e) => {
-    e.target.classList.add('pop-up');
-    if (e.clientX < window.innerWidth / 2) {
-      console.log('dropdown should display on right');
+    const dialogBox = document.querySelector('.character-dialog-box');
+    if (currentlyTargeted) {
+      currentlyTargeted.classList.remove('pop-up');
+      setCurrentlyTargeted('');
+      dialogBox.style.display = "none";
+      dialogBox.classList.remove('show-left');
+      dialogBox.classList.remove('show-right');
     } else {
-      console.log('dropdown should display on left');
+      e.target.classList.add('pop-up');
+      setCurrentlyTargeted(e.target);
+      dialogBox.style.display = "block";
+      if (e.clientX < window.innerWidth / 2) {
+        dialogBox.classList.add('show-right');
+      } else {
+        dialogBox.classList.add('show-left');
+      }
     }
   }
 
@@ -597,7 +611,7 @@ const ContinueGame = ({ illustrationPlaying }) => {
       <div data-element="575" onClick={boxPopUp}></div>
       <div data-element="576" onClick={boxPopUp}></div>
     </div>
-    <div className="character-dialog-box">
+    <div className="character-dialog-box" style={{ display: "none" }}>
       <div className="who-is-it-question">Who is it?</div>
       <div className="character-cards">
         <div>
