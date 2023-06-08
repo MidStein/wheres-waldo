@@ -1,0 +1,168 @@
+.BrowserRouter {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  /* https://coolors.co/e54b4b-ffa987-f7ebe8-444140-1e1e24 */
+  --imperial-red: #E54B4B;
+  --atomic-tangerine: #FFA987;
+  --seashell: #F7EBE8;
+  --jet: #444140;
+  --raisin-black: #1E1E24;
+}
+
+header {
+  background-color: var(--imperial-red);
+  color: var(--seashell);
+  padding: 6px 16px;
+  border-bottom: 3px solid var(--atomic-tangerine);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header > .github-link {
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+}
+header > .github-link:hover {
+  text-decoration: underline;
+}
+
+header > ul {
+  margin: 0;
+  list-style: none;
+  font-size: 16px;
+
+  display: flex;
+  gap: 16px;
+}
+
+header > ul > *:hover {
+  text-decoration: underline;
+}
+
+header > ul a {
+  color: var(--seashell);
+  text-decoration: none;
+}
+
+.Routes {
+  flex: 1;
+  background: center / contain url('./images/waldo-waving.png');
+}
+
+.ChooseDifficulty {
+  height: 100%;
+  background-color: rgba(30, 30, 36, 0.9);
+  color: var(--seashell);
+  font-size: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.diffSelectionBox {
+  background-color: var(--jet);
+  padding: 32px;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.difficulties > * {
+  background-color: var(--raisin-black);
+  color: var(--seashell);
+  font-size: 20px;
+  font-weight: 700;
+  width: 300px;
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+}
+
+.difficulties > *:hover {
+  background-color: var(--atomic-tangerine);
+}
+
+.difficulties > *:nth-child(1) {
+  margin-bottom: 16px;
+}
+
+.ContinueGame {
+  background-size: 100% 100%;
+  height: 100%;
+}
+
+.illustration-container {
+  height: 100%;
+  display: grid;
+  grid-template: repeat(20, 1fr) / 
+    repeat(20, 1fr);
+}
+
+.pop-up {
+  border: 2px solid var(--imperial-red);
+}
+
+.character-dialog-box {
+  background-color: var(--seashell);
+  padding: 20px;
+  border: 2px solid var(--atomic-tangerine);
+  border-radius: 8px;
+  position: absolute;
+  left: 100px;
+  top: 147px;
+
+  /* display: none; */
+}
+
+.character-dialog-box .show-left {
+  left: 100px;
+}
+
+.character-dialog-box .show-right {
+  right: 100px;
+}
+
+.who-is-it-question {
+  color: var(--imperial-red);
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.character-cards > *:not(hr) {
+  font-size: 17px;
+  padding: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.character-cards > *:hover {
+  background-color: var(--atomic-tangerine);
+  color: var(--seashell);
+}
+
+.character-pic {
+  height: 50px;
+  width: 50px;
+  border: 2px solid var(--raisin-black);
+  border-radius: 50%;
+  background-size: 100% 100%;
+
+  background-color: var(--atomic-tangerine);
+}
+
