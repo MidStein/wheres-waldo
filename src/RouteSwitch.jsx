@@ -1,14 +1,19 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import './RouteSwitch.css';
+import './App.css';
+import Game from './components/Game'
 
 const RouteSwitch = () => {
   return (
     <BrowserRouter>
-      <NavBar />
-      <Routes>
-        {/* <Route path='/' element={<App />}></Route> */}
-      </Routes>
+      <div className="BrowserRouter">
+        <NavBar />
+        <div className="Routes">
+          <Routes>
+            <Route path='/' element={<Game />}></Route>
+          </Routes>
+        </div>
+      </div>
     </BrowserRouter>
   );
 }

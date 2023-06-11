@@ -1,11 +1,11 @@
 const NavBar = () => {
   return (
     <header>
-      <a href="https://github.com/MidStein/wheres-waldo" class="github-link">Where's Waldo</a>
-      <ul class="header-links">
-        <li>Home</li>
-        <li>How to Play</li>
-        <li>Leaderboard</li>
+      <a href="https://github.com/MidStein/wheres-waldo" className="github-link">Where's Waldo</a>
+      <ul className="header-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">How to Play</a></li>
+        <li><a href="#">Leaderboard</a></li>
       </ul>
     </header>
   );

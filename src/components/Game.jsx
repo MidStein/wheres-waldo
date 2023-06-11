@@ -3,7 +3,7 @@ import ChooseDifficulty from './ChooseDifficulty';
 import ContinueGame from './ContinueGame';
 
 const Game = () => {
-  const [illustrationPlaying, setIllustrationPlaying] = useState('');
+  const [illustrationPlaying, setIllustrationPlaying] = useState('in-town');
 
   const selectRandIllus = (difficulty) => {
     if (difficulty === 'easy') {

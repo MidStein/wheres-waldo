@@ -4,6 +4,9 @@ import waldo from '../images/characters/waldo.png';
 import wizard from '../images/characters/wizard.png';
 import wilma from '../images/characters/wilma.png';
 import odlaw from '../images/characters/odlaw.png';
+// import '../firestore.temp';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+
 const ContinueGame = ({ illustrationPlaying }) => {
 
   const [currentlyTargeted, setCurrentlyTargeted] = useState('');
@@ -26,6 +29,31 @@ const ContinueGame = ({ illustrationPlaying }) => {
         dialogBox.classList.add('show-left');
       }
     }
+  }
+
+  const validateUserSelection = async (e) => {
+    const feedback = document.querySelector('.feedback');
+    feedback.style.display = 'block';
+    const db = getFirestore();
+    const querySnapshot = await getDocs(collection(db, 'locations'));
+    querySnapshot.forEach((doc) => {
+      const docData = doc.data();
+      if (docData.illustration === 'in-town') {
+        if (docData[e.target.textContent.toLowerCase()] == currentlyTargeted.getAttribute('data-element')) {
+          currentlyTargeted.classList.add('found');
+          feedback.classList.add('correct');
+        } else {
+          feedback.classList.add('wrong');
+        }
+      }
+    });
+    await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(true);
+      }, 2000);
+    });
+    feedback.style.display = 'none';
+    feedback.classList.remove('correct', 'wrong');
   }
 
   return (
@@ -434,187 +462,11 @@ const ContinueGame = ({ illustrationPlaying }) => {
       <div data-element="398" onClick={boxPopUp}></div>
       <div data-element="399" onClick={boxPopUp}></div>
       <div data-element="400" onClick={boxPopUp}></div>
-      <div data-element="401" onClick={boxPopUp}></div>
-      <div data-element="402" onClick={boxPopUp}></div>
-      <div data-element="403" onClick={boxPopUp}></div>
-      <div data-element="404" onClick={boxPopUp}></div>
-      <div data-element="405" onClick={boxPopUp}></div>
-      <div data-element="406" onClick={boxPopUp}></div>
-      <div data-element="407" onClick={boxPopUp}></div>
-      <div data-element="408" onClick={boxPopUp}></div>
-      <div data-element="409" onClick={boxPopUp}></div>
-      <div data-element="410" onClick={boxPopUp}></div>
-      <div data-element="411" onClick={boxPopUp}></div>
-      <div data-element="412" onClick={boxPopUp}></div>
-      <div data-element="413" onClick={boxPopUp}></div>
-      <div data-element="414" onClick={boxPopUp}></div>
-      <div data-element="415" onClick={boxPopUp}></div>
-      <div data-element="416" onClick={boxPopUp}></div>
-      <div data-element="417" onClick={boxPopUp}></div>
-      <div data-element="418" onClick={boxPopUp}></div>
-      <div data-element="419" onClick={boxPopUp}></div>
-      <div data-element="420" onClick={boxPopUp}></div>
-      <div data-element="421" onClick={boxPopUp}></div>
-      <div data-element="422" onClick={boxPopUp}></div>
-      <div data-element="423" onClick={boxPopUp}></div>
-      <div data-element="424" onClick={boxPopUp}></div>
-      <div data-element="425" onClick={boxPopUp}></div>
-      <div data-element="426" onClick={boxPopUp}></div>
-      <div data-element="427" onClick={boxPopUp}></div>
-      <div data-element="428" onClick={boxPopUp}></div>
-      <div data-element="429" onClick={boxPopUp}></div>
-      <div data-element="430" onClick={boxPopUp}></div>
-      <div data-element="431" onClick={boxPopUp}></div>
-      <div data-element="432" onClick={boxPopUp}></div>
-      <div data-element="433" onClick={boxPopUp}></div>
-      <div data-element="434" onClick={boxPopUp}></div>
-      <div data-element="435" onClick={boxPopUp}></div>
-      <div data-element="436" onClick={boxPopUp}></div>
-      <div data-element="437" onClick={boxPopUp}></div>
-      <div data-element="438" onClick={boxPopUp}></div>
-      <div data-element="439" onClick={boxPopUp}></div>
-      <div data-element="440" onClick={boxPopUp}></div>
-      <div data-element="441" onClick={boxPopUp}></div>
-      <div data-element="442" onClick={boxPopUp}></div>
-      <div data-element="443" onClick={boxPopUp}></div>
-      <div data-element="444" onClick={boxPopUp}></div>
-      <div data-element="445" onClick={boxPopUp}></div>
-      <div data-element="446" onClick={boxPopUp}></div>
-      <div data-element="447" onClick={boxPopUp}></div>
-      <div data-element="448" onClick={boxPopUp}></div>
-      <div data-element="449" onClick={boxPopUp}></div>
-      <div data-element="450" onClick={boxPopUp}></div>
-      <div data-element="451" onClick={boxPopUp}></div>
-      <div data-element="452" onClick={boxPopUp}></div>
-      <div data-element="453" onClick={boxPopUp}></div>
-      <div data-element="454" onClick={boxPopUp}></div>
-      <div data-element="455" onClick={boxPopUp}></div>
-      <div data-element="456" onClick={boxPopUp}></div>
-      <div data-element="457" onClick={boxPopUp}></div>
-      <div data-element="458" onClick={boxPopUp}></div>
-      <div data-element="459" onClick={boxPopUp}></div>
-      <div data-element="460" onClick={boxPopUp}></div>
-      <div data-element="461" onClick={boxPopUp}></div>
-      <div data-element="462" onClick={boxPopUp}></div>
-      <div data-element="463" onClick={boxPopUp}></div>
-      <div data-element="464" onClick={boxPopUp}></div>
-      <div data-element="465" onClick={boxPopUp}></div>
-      <div data-element="466" onClick={boxPopUp}></div>
-      <div data-element="467" onClick={boxPopUp}></div>
-      <div data-element="468" onClick={boxPopUp}></div>
-      <div data-element="469" onClick={boxPopUp}></div>
-      <div data-element="470" onClick={boxPopUp}></div>
-      <div data-element="471" onClick={boxPopUp}></div>
-      <div data-element="472" onClick={boxPopUp}></div>
-      <div data-element="473" onClick={boxPopUp}></div>
-      <div data-element="474" onClick={boxPopUp}></div>
-      <div data-element="475" onClick={boxPopUp}></div>
-      <div data-element="476" onClick={boxPopUp}></div>
-      <div data-element="477" onClick={boxPopUp}></div>
-      <div data-element="478" onClick={boxPopUp}></div>
-      <div data-element="479" onClick={boxPopUp}></div>
-      <div data-element="480" onClick={boxPopUp}></div>
-      <div data-element="481" onClick={boxPopUp}></div>
-      <div data-element="482" onClick={boxPopUp}></div>
-      <div data-element="483" onClick={boxPopUp}></div>
-      <div data-element="484" onClick={boxPopUp}></div>
-      <div data-element="485" onClick={boxPopUp}></div>
-      <div data-element="486" onClick={boxPopUp}></div>
-      <div data-element="487" onClick={boxPopUp}></div>
-      <div data-element="488" onClick={boxPopUp}></div>
-      <div data-element="489" onClick={boxPopUp}></div>
-      <div data-element="490" onClick={boxPopUp}></div>
-      <div data-element="491" onClick={boxPopUp}></div>
-      <div data-element="492" onClick={boxPopUp}></div>
-      <div data-element="493" onClick={boxPopUp}></div>
-      <div data-element="494" onClick={boxPopUp}></div>
-      <div data-element="495" onClick={boxPopUp}></div>
-      <div data-element="496" onClick={boxPopUp}></div>
-      <div data-element="497" onClick={boxPopUp}></div>
-      <div data-element="498" onClick={boxPopUp}></div>
-      <div data-element="499" onClick={boxPopUp}></div>
-      <div data-element="500" onClick={boxPopUp}></div>
-      <div data-element="501" onClick={boxPopUp}></div>
-      <div data-element="502" onClick={boxPopUp}></div>
-      <div data-element="503" onClick={boxPopUp}></div>
-      <div data-element="504" onClick={boxPopUp}></div>
-      <div data-element="505" onClick={boxPopUp}></div>
-      <div data-element="506" onClick={boxPopUp}></div>
-      <div data-element="507" onClick={boxPopUp}></div>
-      <div data-element="508" onClick={boxPopUp}></div>
-      <div data-element="509" onClick={boxPopUp}></div>
-      <div data-element="510" onClick={boxPopUp}></div>
-      <div data-element="511" onClick={boxPopUp}></div>
-      <div data-element="512" onClick={boxPopUp}></div>
-      <div data-element="513" onClick={boxPopUp}></div>
-      <div data-element="514" onClick={boxPopUp}></div>
-      <div data-element="515" onClick={boxPopUp}></div>
-      <div data-element="516" onClick={boxPopUp}></div>
-      <div data-element="517" onClick={boxPopUp}></div>
-      <div data-element="518" onClick={boxPopUp}></div>
-      <div data-element="519" onClick={boxPopUp}></div>
-      <div data-element="520" onClick={boxPopUp}></div>
-      <div data-element="521" onClick={boxPopUp}></div>
-      <div data-element="522" onClick={boxPopUp}></div>
-      <div data-element="523" onClick={boxPopUp}></div>
-      <div data-element="524" onClick={boxPopUp}></div>
-      <div data-element="525" onClick={boxPopUp}></div>
-      <div data-element="526" onClick={boxPopUp}></div>
-      <div data-element="527" onClick={boxPopUp}></div>
-      <div data-element="528" onClick={boxPopUp}></div>
-      <div data-element="529" onClick={boxPopUp}></div>
-      <div data-element="530" onClick={boxPopUp}></div>
-      <div data-element="531" onClick={boxPopUp}></div>
-      <div data-element="532" onClick={boxPopUp}></div>
-      <div data-element="533" onClick={boxPopUp}></div>
-      <div data-element="534" onClick={boxPopUp}></div>
-      <div data-element="535" onClick={boxPopUp}></div>
-      <div data-element="536" onClick={boxPopUp}></div>
-      <div data-element="537" onClick={boxPopUp}></div>
-      <div data-element="538" onClick={boxPopUp}></div>
-      <div data-element="539" onClick={boxPopUp}></div>
-      <div data-element="540" onClick={boxPopUp}></div>
-      <div data-element="541" onClick={boxPopUp}></div>
-      <div data-element="542" onClick={boxPopUp}></div>
-      <div data-element="543" onClick={boxPopUp}></div>
-      <div data-element="544" onClick={boxPopUp}></div>
-      <div data-element="545" onClick={boxPopUp}></div>
-      <div data-element="546" onClick={boxPopUp}></div>
-      <div data-element="547" onClick={boxPopUp}></div>
-      <div data-element="548" onClick={boxPopUp}></div>
-      <div data-element="549" onClick={boxPopUp}></div>
-      <div data-element="550" onClick={boxPopUp}></div>
-      <div data-element="551" onClick={boxPopUp}></div>
-      <div data-element="552" onClick={boxPopUp}></div>
-      <div data-element="553" onClick={boxPopUp}></div>
-      <div data-element="554" onClick={boxPopUp}></div>
-      <div data-element="555" onClick={boxPopUp}></div>
-      <div data-element="556" onClick={boxPopUp}></div>
-      <div data-element="557" onClick={boxPopUp}></div>
-      <div data-element="558" onClick={boxPopUp}></div>
-      <div data-element="559" onClick={boxPopUp}></div>
-      <div data-element="560" onClick={boxPopUp}></div>
-      <div data-element="561" onClick={boxPopUp}></div>
-      <div data-element="562" onClick={boxPopUp}></div>
-      <div data-element="563" onClick={boxPopUp}></div>
-      <div data-element="564" onClick={boxPopUp}></div>
-      <div data-element="565" onClick={boxPopUp}></div>
-      <div data-element="566" onClick={boxPopUp}></div>
-      <div data-element="567" onClick={boxPopUp}></div>
-      <div data-element="568" onClick={boxPopUp}></div>
-      <div data-element="569" onClick={boxPopUp}></div>
-      <div data-element="570" onClick={boxPopUp}></div>
-      <div data-element="571" onClick={boxPopUp}></div>
-      <div data-element="572" onClick={boxPopUp}></div>
-      <div data-element="573" onClick={boxPopUp}></div>
-      <div data-element="574" onClick={boxPopUp}></div>
-      <div data-element="575" onClick={boxPopUp}></div>
-      <div data-element="576" onClick={boxPopUp}></div>
     </div>
     <div className="character-dialog-box" style={{ display: "none" }}>
       <div className="who-is-it-question">Who is it?</div>
       <div className="character-cards">
-        <div>
+        <div onClick={validateUserSelection}>
           <div 
             style={{ backgroundImage: `url(${waldo})` }}
             className="character-pic"
@@ -623,16 +475,16 @@ const ContinueGame = ({ illustrationPlaying }) => {
           <div className="character-name">Waldo</div>
         </div>
         <hr />
-        <div>
+        <div onClick={validateUserSelection}>
           <div 
-          style={{ backgroundImage: `url(${wizard})` }}
-          className="character-pic"
+            style={{ backgroundImage: `url(${wizard})` }}
+            className="character-pic"
           >
           </div>
           <div className="character-name">Wizard</div>
         </div>
         <hr />
-        <div>
+        <div onClick={validateUserSelection}>
           <div 
             style={{ backgroundImage: `url(${wilma})` }}
             className="character-pic"
@@ -641,7 +493,7 @@ const ContinueGame = ({ illustrationPlaying }) => {
           <div className="character-name">Wilma</div>
         </div>
         <hr />
-        <div>
+        <div onClick={validateUserSelection}>
           <div 
             style={{ backgroundImage: `url(${odlaw})` }}
             className="character-pic"
@@ -651,6 +503,7 @@ const ContinueGame = ({ illustrationPlaying }) => {
         </div>
       </div>
     </div>
+    <img className='feedback' style={{ display: "none" }} />
   </div>
   );
 };

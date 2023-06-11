@@ -13,18 +13,17 @@
 
 header {
   background-color: var(--imperial-red);
-  color: var(--seashell);
   padding: 6px 16px;
   border-bottom: 3px solid var(--atomic-tangerine);
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 header > .github-link {
   font-size: 24px;
   font-weight: 700;
+  margin-right: 24px;
   text-decoration: none;
   color: white;
 }
@@ -34,13 +33,13 @@ header > .github-link:hover {
 
 header > ul {
   margin: 0;
+  margin-left: auto;
   list-style: none;
   font-size: 16px;
 
   display: flex;
   gap: 16px;
 }
-
 header > ul > *:hover {
   text-decoration: underline;
 }
@@ -87,7 +86,6 @@ header > ul a {
   cursor: pointer;
   display: block;
 }
-
 .difficulties > *:hover {
   background-color: var(--atomic-tangerine);
 }
@@ -108,6 +106,11 @@ header > ul a {
     repeat(20, 1fr);
 }
 
+.illustration-container > .found {
+  border: 2px solid var(--atomic-tangerine);
+  outline: 2px solid var(--jet);
+}
+
 .pop-up {
   border: 2px solid var(--imperial-red);
 }
@@ -119,8 +122,6 @@ header > ul a {
   border-radius: 8px;
   position: absolute;
   top: 147px;
-
-  /* display: none; */
 }
 
 .character-dialog-box.show-left {
@@ -149,7 +150,6 @@ header > ul a {
   gap: 12px;
   align-items: center;
 }
-
 .character-cards > *:hover {
   background-color: var(--atomic-tangerine);
   color: var(--seashell);
@@ -162,4 +162,22 @@ header > ul a {
   border-radius: 50%;
   background-size: 100% 100%;
 }
+
+.feedback {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 500px;
+  width: 500px;
+  transform: translate(-50%, -50%);
+}
+
+.feedback.correct {
+  background: center / contain url('./gifs/correct-duck.gif');
+}
+
+.feedback.wrong {
+  background: center / contain url('./gifs/wrong-duck.gif');
+}
+
 
