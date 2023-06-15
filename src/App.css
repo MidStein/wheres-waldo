@@ -14,7 +14,7 @@
 header {
   background-color: var(--imperial-red);
   padding: 6px 16px;
-  border-bottom: 3px solid var(--atomic-tangerine);
+  border-bottom: 2px solid var(--atomic-tangerine);
 
   display: flex;
   align-items: center;
@@ -55,7 +55,8 @@ header > ul a {
 }
 
 .ChooseDifficulty,
-.EnterName {
+.EnterName,
+.Leaderboard {
   height: 100%;
   background-color: rgba(30, 30, 36, 0.9);
   color: var(--seashell);
@@ -91,7 +92,7 @@ header > ul a {
   background-color: var(--atomic-tangerine);
 }
 
-.difficulties > *:nth-child(1) {
+.difficulties :first-child {
   margin-bottom: 16px;
 }
 
@@ -200,19 +201,20 @@ header > ul a {
   gap: 12px;
 }
 
-.nameInputBox > div > span:nth-child(1) {
+.nameInputBox > div :first-child {
   margin-right: 8px;
-}
-
-.nameInputBox > div > *:nth-child(2) {
-  color: var(--atomic-tangerine);
 }
 
 .nameInputBox input {
   font-size: 20px;
   background-color: var(--seashell);
+  color: var(--imperial-red);
   width: 175px;
   outline: none;
+}
+
+.nameInputBox > div > span:nth-child(2) {
+  color: var(--atomic-tangerine);
 }
 
 .nameInputBox > button {
@@ -232,5 +234,48 @@ header > ul a {
 }
 .nameInputBox > button:hover {
   background-color: var(--atomic-tangerine);
+}
+
+.Leaderboard > table {
+  border: 4px solid var(--seashell);
+  border-radius: 8px;
+  border-spacing: 0;
+}
+
+.Leaderboard tr:nth-child(1) {
+  height: 65px;
+  color: var(--imperial-red);
+}
+
+.Leaderboard tr {
+  height: 50px;
+}
+
+.Leaderboard th {
+  font-size: 24px;
+  border-bottom: 4px solid var(--seashell);
+}
+
+.Leaderboard tr > * {
+  text-align: center;
+  width: 250px;
+}
+
+.Leaderboard tr > *:nth-child(1) {
+  border-right: 2px solid var(--seashell);
+  width: 100px;
+}
+
+.Leaderboard tr > *:nth-child(2) {
+  border-left: 2px solid var(--seashell);
+  border-right: 2px solid var(--seashell);
+}
+
+.Leaderboard tr *:nth-child(3) {
+  border-left: 2px solid var(--seashell);
+}
+
+.Leaderboard tr:last-child {
+  color: var(--atomic-tangerine);
 }
 

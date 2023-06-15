@@ -4,7 +4,7 @@ const EnterName = () => {
       <div className="nameInputBox">
         <div>
           <span>Your Name: </span>
-          <input type="text" autoFocus />
+          <input type="text" maxLength={13} autoFocus />
         </div>
         <div>
           <span>Your Time: </span>
