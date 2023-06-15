@@ -16,8 +16,9 @@ const PlayGame = () => {
     if (foundCnt === 1) {
       const confetti = document.querySelector('.confetti-screen');
       confetti.style.display = 'block';
-      // setTimeOut
-      // navigate('/leaderboard');
+      setTimeout(() => {
+        navigate('/enter-name');
+      }, 2000);
     }
   }, [foundCnt]);
 

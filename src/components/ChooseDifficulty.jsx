@@ -2,7 +2,7 @@ const ChooseDifficulty = ({ selectRandIllus }) => {
   return (
     <div className="ChooseDifficulty">
       <div className="diffSelectionBox">
-        <div className="diffQuery">Choose Difficulty</div>
+        <div>Choose Difficulty</div>
 
         <div className="difficulties">
           <button onClick={() => { selectRandIllus('easy') }}>

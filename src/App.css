@@ -54,7 +54,8 @@ header > ul a {
   background: center / contain url('./images/waldo-waving.png');
 }
 
-.ChooseDifficulty {
+.ChooseDifficulty,
+.EnterName {
   height: 100%;
   background-color: rgba(30, 30, 36, 0.9);
   color: var(--seashell);
@@ -187,5 +188,49 @@ header > ul a {
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+.nameInputBox {
+  background-color: var(--jet);
+  padding: 32px;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nameInputBox > div > span:nth-child(1) {
+  margin-right: 8px;
+}
+
+.nameInputBox > div > *:nth-child(2) {
+  color: var(--atomic-tangerine);
+}
+
+.nameInputBox input {
+  font-size: 20px;
+  background-color: var(--seashell);
+  width: 175px;
+  outline: none;
+}
+
+.nameInputBox > button {
+  background-color: var(--raisin-black);
+  color: var(--seashell);
+  font-size: 20px;
+  font-weight: 700;
+  width: 150px;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+
+  display: block;
+}
+.nameInputBox > button:hover {
+  background-color: var(--atomic-tangerine);
 }
 
