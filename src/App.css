@@ -205,7 +205,7 @@ header > ul a {
   margin-right: 8px;
 }
 
-.nameInputBox input {
+.nameInputBox #name {
   font-size: 20px;
   background-color: var(--seashell);
   color: var(--imperial-red);
@@ -242,7 +242,7 @@ header > ul a {
   border-spacing: 0;
 }
 
-.Leaderboard tr:nth-child(1) {
+.Leaderboard thead {
   height: 65px;
   color: var(--imperial-red);
 }
@@ -275,7 +275,19 @@ header > ul a {
   border-left: 2px solid var(--seashell);
 }
 
-.Leaderboard tr:last-child {
+.currPlayerRow {
   color: var(--atomic-tangerine);
+}
+
+.timer {
+  background-color: var(--atomic-tangerine);
+  color: var(--seashell);
+  font-size: 20px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 6px;
+  left: 45%;
 }
 

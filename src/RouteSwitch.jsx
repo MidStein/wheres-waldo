@@ -13,7 +13,7 @@ const RouteSwitch = () => {
         <NavBar />
         <div className="Routes">
           <Routes>
-            <Route path='/choose-difficulty' element={<ChooseDifficulty />} />
+            <Route path='/' element={<ChooseDifficulty />} />
             <Route path='/play-game' element={<PlayGame />} />
             <Route path='/enter-name' element={<EnterName />} />
             <Route path='/leaderboard' element={<Leaderboard />} />
