@@ -1,4 +1,15 @@
-const ChooseDifficulty = ({ selectRandIllus }) => {
+import { useNavigate } from "react-router-dom";
+
+const ChooseDifficulty = () => {
+  const navigate = useNavigate();
+
+  const selectRandIllus = () => {
+    navigate('/play-game', { state: { 
+      illustration: 'in-town',
+      gameUnderProgress: true
+    }});
+  } 
+
   return (
     <div className="ChooseDifficulty">
       <div className="diffSelectionBox">

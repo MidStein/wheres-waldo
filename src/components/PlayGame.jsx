@@ -1,23 +1,51 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import inTown from "../images/puzzles/in-town.jpg";
+import { useNavigate, useLocation } from "react-router-dom";
 import waldo from "../images/characters/waldo.png";
 import wizard from "../images/characters/wizard.png";
 import wilma from "../images/characters/wilma.png";
 import odlaw from "../images/characters/odlaw.png";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 const PlayGame = () => {
   const [currentlyTargeted, setCurrentlyTargeted] = useState('');
   const [foundCnt, setFoundCnt] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
+  const illustrationName = location.state.illustration;
+  const storage = getStorage();
+  const illustrationRef = ref(storage, `illustrations/${illustrationName}.jpg`);
+  const [illustrationUrl, setIllustrationUrl] = useState();
+  const [timePassed, setTimePassed] = useState(0);
 
+  // Load illustration when page loads
+  useEffect(() => {
+    const fetchImageUrl = async () => {
+      setIllustrationUrl(await getDownloadURL(illustrationRef));
+    }
+    fetchImageUrl();
+
+    const oneSecondInterval = setInterval(() => {
+      setTimePassed((timePassed) => (timePassed + 1));
+    }, 1000);
+
+    return () => {
+      setTimePassed(0);
+      clearInterval(oneSecondInterval);
+    };
+  }, []);
+
+  // When all characters identified pop confetti and navigate to EnterName
   useEffect(() => {
     if (foundCnt === 1) {
       const confetti = document.querySelector('.confetti-screen');
       confetti.style.display = 'block';
       setTimeout(() => {
-        navigate('/enter-name');
+        navigate('/enter-name', { state: {
+          illustration: illustrationName,
+          gameUnderProgress: false,
+          timePassed
+        }});
       }, 2000);
     }
   }, [foundCnt]);
@@ -45,16 +73,15 @@ const PlayGame = () => {
   }
 
   const validateUserSelection = async (e) => {
-    toggleBoxPopUp(e);
-
     const feedback = document.querySelector('.feedback');
     feedback.style.display = 'block';
 
+    // Check if correct box selected and increment count
     const db = getFirestore();
     const querySnapshot = await getDocs(collection(db, 'locations'));
     querySnapshot.forEach((doc) => {
       const docData = doc.data();
-      if (docData.illustration === 'in-town') {
+      if (docData.illustration === illustrationName) {
         let target = e.target;
         if (target.classList.contains('character-pic')) {
           target = target.parentElement;
@@ -69,6 +96,9 @@ const PlayGame = () => {
       }
     });
 
+    toggleBoxPopUp(e);
+
+    // Remove user feedback after 2 seconds
     await new Promise((resolve) => {
       setTimeout(() => {
         resolve(true);
@@ -80,7 +110,7 @@ const PlayGame = () => {
 
   return (
     <div
-      style={{ backgroundImage: `url(${inTown})` }}
+      style={{ backgroundImage: `url(${illustrationUrl})` }}
       className="PlayGame"
     >
       <div className="illustration-container">
