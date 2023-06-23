@@ -50,6 +50,25 @@ const PlayGame = () => {
     }
   }, [foundCnt]);
 
+  // Display timePassed in hh:mm:ss format
+  const formattedTime = () => {
+    const seconds = timePassed % 60;
+    const minutes = Math.floor(timePassed / 60);
+    const hours = Math.floor(timePassed / 3600);
+
+    let secondsStr = seconds.toString();
+    let minutesStr = minutes.toString();
+    let hoursStr = '0' + hours.toString();
+    if (Math.floor(seconds / 10) === 0) {
+      secondsStr = '0' + secondsStr;
+    }
+    if (Math.floor(minutes / 10) === 0) {
+      minutesStr = '0' + minutesStr;
+    }
+
+    return `${hoursStr} : ${minutesStr} : ${secondsStr}`;
+  }
+
   const toggleBoxPopUp = (e) => {
     const dialogBox = document.querySelector('.character-dialog-box');
     if (currentlyTargeted) {
@@ -558,8 +577,10 @@ const PlayGame = () => {
       </div>
 
       <div className="feedback" style={{ display: "none" }}></div>
-      
+
       <div className="confetti-screen" style={{ display: "none" }}></div>
+
+      <div className="timer">{formattedTime()}</div>
     </div>
   );
 };
