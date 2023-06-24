@@ -50,7 +50,6 @@ const EnterName = () => {
 
     navigate('/leaderboard', { state: {
       illustration: location.state.illustration,
-      gameUnderProgress: false,
       currPlayerId: currPlayerRef.id
     }});
   }

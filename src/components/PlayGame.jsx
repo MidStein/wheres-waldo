@@ -37,13 +37,12 @@ const PlayGame = () => {
 
   // When all characters identified pop confetti and navigate to EnterName
   useEffect(() => {
-    if (foundCnt === 1) {
+    if (foundCnt === 4) {
       const confetti = document.querySelector('.confetti-screen');
       confetti.style.display = 'block';
       setTimeout(() => {
         navigate('/enter-name', { state: {
           illustration: illustrationName,
-          gameUnderProgress: false,
           timePassed
         }});
       }, 2000);
@@ -95,7 +94,7 @@ const PlayGame = () => {
     const feedback = document.querySelector('.feedback');
     feedback.style.display = 'block';
 
-    // Check if correct box selected and increment count
+    // Check if correct box selected and if so increment count
     const db = getFirestore();
     const querySnapshot = await getDocs(collection(db, 'locations'));
     querySnapshot.forEach((doc) => {
