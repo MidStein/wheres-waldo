@@ -15,9 +15,6 @@ header {
   background-color: var(--imperial-red);
   padding: 6px 16px;
   border-bottom: 2px solid var(--atomic-tangerine);
-
-  display: flex;
-  align-items: center;
 }
 
 header > .github-link {
@@ -29,24 +26,6 @@ header > .github-link {
 }
 header > .github-link:hover {
   text-decoration: underline;
-}
-
-header > ul {
-  margin: 0;
-  margin-left: auto;
-  list-style: none;
-  font-size: 16px;
-
-  display: flex;
-  gap: 16px;
-}
-header > ul > *:hover {
-  text-decoration: underline;
-}
-
-header > ul a {
-  color: var(--seashell);
-  text-decoration: none;
 }
 
 .Routes {
