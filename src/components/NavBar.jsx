@@ -1,8 +1,3 @@
-import ChooseDifficulty from "./ChooseDifficulty";
-import PlayGame from "./PlayGame";
-import Leaderboard from "./Leaderboard";
-import { NavLink } from "react-router-dom";
-
 const NavBar = () => {
   return (
     <header>
