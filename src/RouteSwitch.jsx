@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import TitleBar from "./components/TitleBar";
 import "./App.css";
 import ChooseDifficulty from "./components/ChooseDifficulty";
 import PlayGame from "./components/PlayGame";
@@ -10,7 +10,7 @@ const RouteSwitch = () => {
   return (
     <BrowserRouter>
       <div className="BrowserRouter">
-        <NavBar />
+        <TitleBar />
         <div className="Routes">
           <Routes>
             <Route path='/' element={<ChooseDifficulty />} />
