@@ -4,17 +4,13 @@ const ChooseDifficulty = () => {
   const navigate = useNavigate();
 
   const selectRandIllus = (difficulty) => {
-    let illustration;
     const easyIlls = ['in-town', 'ski-slopes', 'the-future'];
     const hardIlls = ['fairground', 'on-the-beach', 'sports-stadium', 'the-gold-rush'];
 
-    if (difficulty === 'easy') {
-      const randOutOf3 = Math.floor(Math.random() * 3 + 1);
-      illustration = easyIlls[randOutOf3 - 1];
-    } else {
-      const randOutOf4 = Math.floor(Math.random() * 4 + 1);
-      illustration = hardIlls[randOutOf4 - 1];
-    }
+    const chosenIlls = difficulty === 'easy' ? easyIlls : hardIlls;
+
+    const randIndex = Math.floor(Math.random() * chosenIlls.length)
+    const illustration = chosenIlls[randIndex];
 
     navigate('/play-game', { state: { 
       illustration,
