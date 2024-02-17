@@ -33,6 +33,7 @@ const PlayGame = () => {
       setTimePassed(0);
       clearInterval(oneSecondInterval);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // When all characters identified pop confetti and navigate to EnterName
@@ -47,6 +48,7 @@ const PlayGame = () => {
         }});
       }, 2000);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [foundCnt]);
 
   // Display timePassed in hh:mm:ss format
@@ -59,17 +61,18 @@ const PlayGame = () => {
     let minutesStr = minutes.toString();
     let hoursStr = '0' + hours.toString();
     if (Math.floor(seconds / 10) === 0) {
-      secondsStr = '0' + secondsStr;
+      secondsStr = '0' + seconds.toString();
     }
     if (Math.floor(minutes / 10) === 0) {
-      minutesStr = '0' + minutesStr;
+      minutesStr = '0' + minutes.toString();
     }
 
     return `${hoursStr} : ${minutesStr} : ${secondsStr}`;
   }
 
-  const toggleBoxPopUp = (e) => {
+  const toggleBoxPopup = (e) => {
     const dialogBox = document.querySelector('.character-dialog-box');
+    // if area is already selected
     if (currentlyTargeted) {
       currentlyTargeted.classList.remove('pop-up');
       setCurrentlyTargeted('');
@@ -104,7 +107,10 @@ const PlayGame = () => {
         if (target.classList.contains('character-pic')) {
           target = target.parentElement;
         }
-        if (docData[target.textContent.toLowerCase()].toString() === currentlyTargeted.getAttribute('data-element')) {
+        if (
+          docData[target.textContent.toLowerCase()].toString()
+          === currentlyTargeted.getAttribute('data-element')
+        ) {
           currentlyTargeted.classList.add('found');
           feedback.classList.add('correct');
           setFoundCnt(foundCnt + 1);
@@ -114,7 +120,7 @@ const PlayGame = () => {
       }
     });
 
-    toggleBoxPopUp(e);
+    toggleBoxPopup(e);
 
     // Remove user feedback after 2 seconds
     await new Promise((resolve) => {
@@ -134,7 +140,7 @@ const PlayGame = () => {
       <div className="illustration-container">
         {
           [...Array(400)]
-            .map((_, i) => (<div data-element={i} onClick={toggleBoxPopUp}></div>))
+            .map((_, i) => (<div key={i} data-element={i + 1} onClick={toggleBoxPopup}></div>))
         }
       </div>
 

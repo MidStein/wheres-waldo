@@ -9,7 +9,7 @@ const EnterName = () => {
     let displayTime;
     const timePassed = location.state.timePassed;
     const seconds = timePassed % 60;
-    const minutes = Math.floor(timePassed / 60);
+    const minutes = Math.floor(timePassed / 60) % 60;
     const hours = Math.floor(timePassed / 3600);
 
     displayTime = seconds + 'sec';
@@ -48,10 +48,12 @@ const EnterName = () => {
       nameAndTime
     );
 
-    navigate('/leaderboard', { state: {
-      illustration: location.state.illustration,
-      currPlayerId: currPlayerRef.id
-    }});
+    navigate('/leaderboard', {
+      state: {
+        illustration: location.state.illustration,
+        currPlayerId: currPlayerRef.id
+      }
+    });
   }
 
   return (

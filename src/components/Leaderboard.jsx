@@ -14,7 +14,7 @@ const Leaderboard = () => {
   const location = useLocation();
   const [entries, setEntries] = useState([]);
   const [currPlayerData, setCurrPlayerData] = useState({});
-  const [currPlayerRank, setCurrPlayerPos] = useState(0);
+  const [currPlayerRank, setCurrPlayerRank] = useState(0);
 
   const kebabToPascalCase = (kebabStr) => {
     let pascalStr = kebabStr.charAt(0).toUpperCase();
@@ -39,16 +39,18 @@ const Leaderboard = () => {
       setEntries((await getDocs(query(leaderboardsRef, orderBy("time")))).docs);
     }
     getEntriesFromFirestore();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Get current player rank
   useEffect(() => {
     for(let i = 0; i < entries.length; i += 1) {
       if (entries[i].id === location.state.currPlayerId) {
-        setCurrPlayerPos(i + 1);
+        setCurrPlayerRank(i + 1);
         break;
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entries]);
 
   const formattedTimePassed = (timePassed) => {
@@ -69,7 +71,7 @@ const Leaderboard = () => {
 
   // Load current player data for not top 5 case
   useEffect(() => {
-    const getCurrentPlayerData = async () => {
+    (async () => {
       const db = getFirestore();
       const currPlayerRef = await getDoc(doc(
         db,
@@ -77,8 +79,7 @@ const Leaderboard = () => {
         location.state.currPlayerId
       ));
       setCurrPlayerData(currPlayerRef.data());
-    }
-    getCurrentPlayerData();
+    })();
   });
 
   return (
@@ -107,7 +108,7 @@ const Leaderboard = () => {
             return (
               <tr key={doc.id}>
                 <td>{ind + 1}</td>
-                <td>{docData.name}</td>
+                <td>{docData.name}(You)</td>
                 <td>{formattedTimePassed(docData.time)}</td>
               </tr>
             );
@@ -115,7 +116,7 @@ const Leaderboard = () => {
 
           {/* When player not in top 5 */}
           {(currPlayerRank > 5) && (
-            <tr key='jFCQyWTuGpfb2ENxd3un' className="currPlayerRow">
+            <tr className="currPlayerRow">
               <td>{currPlayerRank}</td>
               <td>{currPlayerData.name}(You)</td>
               <td>{formattedTimePassed(currPlayerData.time)}</td>
