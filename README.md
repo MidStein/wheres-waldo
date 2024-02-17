@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Where's Waldo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A basic photo tagging web game.
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+The classic Where's Waldo (or Where's Wally) game. You have to find Waldo, Wilma
+, Whitebeard and Odlaw in the lowest amount of time possible. The easier and
+harder illustration are separated on difficulty. Each illustration has it's own
+scoreboard where you'll get to see your position. Top 5 names will be displayed
+to everybody.
 
-### `npm start`
+## Running locally
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. `git clone https://github.com/MidStein/wheres-waldo.git`
+2. `cd wheres-waldo`
+3. `npm install` to install dependencies
+4. `npm start` to run the app. Open
+  [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Dependencies
 
-### `npm test`
+React
+: Frontend library/framework for making user interfaces based on reusable
+  components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+React Router Dom
+: Client side routing library
 
-### `npm run build`
+Firebase Firestore
+: A Cloud based NoSQL database
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Firebase Storage
+: A Cloud based database more suitable for storing binary files such as images
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Screen captures
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Difficulty Menu
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Selecting a character
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Game ending
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

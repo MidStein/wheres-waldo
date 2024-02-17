@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import TitleBar from "./components/TitleBar";
+
 import "./App.css";
+import TitleBar from "./components/TitleBar";
 import ChooseDifficulty from "./components/ChooseDifficulty";
 import PlayGame from "./components/PlayGame";
 import EnterName from "./components/EnterName";

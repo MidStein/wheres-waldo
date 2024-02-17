@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+
 import waldo from "../images/characters/waldo.png";
 import wizard from "../images/characters/wizard.png";
 import wilma from "../images/characters/wilma.png";
 import odlaw from "../images/characters/odlaw.png";
+
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
@@ -20,10 +22,9 @@ const PlayGame = () => {
 
   // Load illustration when page loads
   useEffect(() => {
-    const fetchImageUrl = async () => {
+    (async () => {
       setIllustrationUrl(await getDownloadURL(illustrationRef));
-    }
-    fetchImageUrl();
+    })();
 
     const oneSecondInterval = setInterval(() => {
       setTimePassed((timePassed) => (timePassed + 1));
