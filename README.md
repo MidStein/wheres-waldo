@@ -37,10 +37,12 @@ Firebase Storage
 
 Difficulty Menu
 
+![choose-difficulty](https://github.com/MidStein/wheres-waldo/assets/78083747/4e9058ed-fd04-4aa4-897d-c3982afdf000)
 
 Selecting a character
 
+https://github.com/MidStein/wheres-waldo/assets/78083747/22e35481-7f76-462f-80ed-34f0bf0564df
 
 Game ending
 
-
+https://github.com/MidStein/wheres-waldo/assets/78083747/ed3d0b68-5c78-48c5-af80-6315c481ce1c
