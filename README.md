@@ -4,11 +4,11 @@ A basic photo tagging web game.
 
 ## Description
 
-The classic Where's Waldo (or Where's Wally) game. You have to find Waldo, Wilma
-, Whitebeard and Odlaw in the lowest amount of time possible. The easier and
-harder illustration are separated on difficulty. Each illustration has it's own
-scoreboard where you'll get to see your position. Top 5 names will be displayed
-to everybody.
+The classic [Where's Waldo](https://en.wikipedia.org/wiki/Where%27s_Wally%3F)
+(or Where's Wally) game. You have to find Waldo, Wilma, Whitebeard and Odlaw in
+the lowest amount of time possible. The easier and harder illustration are
+separated on difficulty. Each illustration has it's own scoreboard where you'll
+get to see your position. Top 5 names will be displayed to everybody.
 
 ## Running locally
 
@@ -20,17 +20,17 @@ to everybody.
 
 ## Dependencies
 
-React
+[React](https://react.dev/)
 : Frontend library/framework for making user interfaces based on reusable
   components
 
-React Router Dom
+[React Router Dom](https://reactrouter.com/)
 : Client side routing library
 
-Firebase Firestore
+[Firebase Firestore](https://firebase.google.com/docs/firestore)
 : A Cloud based NoSQL database
 
-Firebase Storage
+[Firebase Storage](https://firebase.google.com/docs/storage)
 : A Cloud based database more suitable for storing binary files such as images
 
 ## Screen captures
